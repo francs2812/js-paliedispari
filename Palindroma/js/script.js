@@ -1,23 +1,31 @@
-var parola = prompt("Digita una parola");
+var scelta = prompt("pari o dispari");
+var sceltaNumero = parseInt(prompt("scegli un numero da 1 a 5"));
 
-function parolaString(str) {
-    var parolaString = str.split("");
-    console.log(parolaString);
-    var parolaArray = parolaString.reverse();
-    return parolaArray;
+console.log(scelta);
+console.log(sceltaNumero);
+
+function numeroRaddom(min, max) {
+    var numero = Math.random() * (max - min) + min;
+    return numero.toFixed();
+  }
+
+var numeroPc=parseInt(numeroRaddom(1, 6));
+console.log(numeroPc);
+function pari(num1, num2) {
+        var sommaNumeri = num1 + num2; 
+        var pari= true;
+        if (sommaNumeri %2 == 0) {
+            var pari= true;
+        }
+        return pari;
 }
 
-var parolaInversa = parolaString(parola);
-console.log(parolaInversa);
+document.getElementById("scelta_utente").innerHTML= scelta;
+document.getElementById("numero_utente").innerHTML=sceltaNumero;
+document.getElementById("numero_generato").innerHTML= numeroPc;
 
-var parolaInversaIntera="";
-for(var i=0; i<parolaInversa.length; i++){
-   parolaInversaIntera+= parolaInversa[i];
-}
-console.log(parolaInversaIntera);
-
-if (parola == parolaInversaIntera) {
-    alert("è un palindroma")
+if(scelta == pari) {
+    document.writeln("Hai vinto!");
 } else {
-    alert("non è un palindroma")
+    document.writeln("Hai perso!");
 }
